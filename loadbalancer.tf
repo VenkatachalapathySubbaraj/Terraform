@@ -1,7 +1,11 @@
+// provide the credntails under the aws provider 
 provider "aws" {
+	access_id = 
+	secret_access_key = 
 	region = "ap-south-1"
 }
 
+// creating the target group
 resource "aws_lb_target_group" "venkatTG" {
  health_check {
 	interval = 10
@@ -18,6 +22,7 @@ resource "aws_lb_target_group" "venkatTG" {
 	vpc_id = "vpc-6b4b9c00"
 }
 
+// attaching the target group
 resource "aws_lb_target_group_attachment" "TG1" {
   target_group_arn = "${aws_lb_target_group.venkatTG.arn}"
   target_id        = "i-0ea9cd793480b17aa"
@@ -55,6 +60,8 @@ resource "aws_security_group" "Venkat-sg" {
   name   = "Venkat-sg"
   vpc_id = "vpc-6b4b9c00"
 }
+
+// security group creation with the list of port for inbound and outbound
 resource "aws_security_group_rule" "inbound_ssh" {
   from_port         = 22
   protocol          = "tcp"
