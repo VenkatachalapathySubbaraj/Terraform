@@ -50,6 +50,16 @@ default_action {
     target_group_arn = "${aws_lb_target_group.venkatTG.arn}"
   }
 }
+resource "aws_instance" "venkatinstance" { 
+	ami = "ami-041d6256ed0f2061c"
+	key_name = "VenkatTomcat"
+	count = 1
+	vpc_security_group_id = "${aws_security_group.Venkat-sg.id}"
+	subnet = subnet-5524d83e
+	tags {
+		name = "Venkatinstance"
+	}
+} 
 
 resource "aws_security_group" "Venkat-sg" {
   name   = "Venkat-sg"
