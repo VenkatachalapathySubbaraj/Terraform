@@ -55,7 +55,6 @@ resource "aws_instance" "venkatinstance" {
 	key_name = "VenkatTomcat"
 	count = 1
 	vpc_security_group_ids = "${aws_security_group.Venkat-sg.id}"
-	subnet_id = subnet-5524d83e
 	tags = {
 		name = "Venkatinstance"
 	}
