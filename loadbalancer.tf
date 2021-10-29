@@ -53,6 +53,7 @@ default_action {
 resource "aws_instance" "venkatinstance" { 
 	ami = "ami-041d6256ed0f2061c"
 	key_name = "VenkatTomcat"
+	instance_type = "t2.micro"
 	count = 1
 	vpc_security_group_ids = "${aws_security_group.Venkat-sg.id}"
 	tags = {
