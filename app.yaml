@@ -1,5 +1,5 @@
 version: 0.0
-os: ubuntu2004
+os_image: ubuntu
 files:
   - source: /index.html
     destination: /var/www/html/
